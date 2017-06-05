@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.hdefi.joesema.hdefi.ConceptsActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="408dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/concept_map" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <Button
+            android:id="@+id/bConcepts"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_toEndOf="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:text="Concepts" />
+
+        <Button
+            android:id="@+id/bFormulas"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/bConcepts"
+            android:layout_toEndOf="@+id/bConcepts"
+            android:layout_toRightOf="@+id/bConcepts"
+            android:text="Formulas" />
+
+        <Button
+            android:id="@+id/bMessages"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/bFormulas"
+            android:layout_toEndOf="@+id/bFormulas"
+            android:layout_toRightOf="@+id/bFormulas"
+            android:text="Messages" />
+
+        <Button
+            android:id="@+id/bReadings"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Readings" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
