@@ -58,11 +58,11 @@
 
         <Button
             android:id="@+id/bReadings"
-            android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Readings" />
+            android:onClick="onClick"
+            android:text="Read" />
 
     </LinearLayout>
 
