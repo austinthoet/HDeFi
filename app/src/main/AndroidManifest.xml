@@ -18,7 +18,8 @@
         <activity android:name=".ConceptsActivity" />
         <activity android:name=".FormulasActivity" />
         <activity android:name=".MessagesActivity" />
-        <activity android:name=".ReadingsActivity"></activity>
+        <activity android:name=".ReadingsActivity" />
+        <activity android:name=".PostActivity"></activity>
     </application>
 
 </manifest>

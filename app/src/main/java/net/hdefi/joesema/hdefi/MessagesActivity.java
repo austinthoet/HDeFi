@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -62,5 +63,20 @@ public class MessagesActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        /**
+         *  if the item clicked in the MessagesActivity is the Add button from the
+         *  menu resource, start the PostActivity.
+         */
+
+        if(item.getItemId() == R.id.action_add){
+            startActivity(new Intent(MessagesActivity.this, PostActivity.class));
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
