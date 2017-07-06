@@ -17,31 +17,22 @@
         android:layout_marginBottom="78dp"
         android:text="Login" />
 
-    <CheckBox
-        android:id="@+id/cbAlumni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        android:text="Check if you are Alumni"
-        android:layout_above="@+id/bLogin"
-        android:layout_centerHorizontal="true" />
-
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/cbAlumni"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="72dp"
         android:ems="10"
         android:hint="Psu Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_above="@+id/bLogin"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="35dp"
         android:ems="10"
         android:hint="abc123@psu.edu"
         android:inputType="textEmailAddress"

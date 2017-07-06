@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1036845846897",
+    "firebase_url": "https://hdefi-c2b02.firebaseio.com",
+    "project_id": "hdefi-c2b02",
+    "storage_bucket": "hdefi-c2b02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036845846897:android:06819d81db6025d3",
+        "android_client_info": {
+          "package_name": "net.hdefi.joesema.hdefi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036845846897-b28ns4928b9mo4c6h8gdis39j84pocv8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.hdefi.joesema.hdefi",
+            "certificate_hash": "3118a757a24d88be3d3ef797562f18827b7fd2dc"
+          }
+        },
+        {
+          "client_id": "1036845846897-hc1pd0emhkljojrof43l3mt6q9s751ii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYTKX6ylEeETN7VqNzJnCzh4mCQiL2g1M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036845846897-hc1pd0emhkljojrof43l3mt6q9s751ii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
