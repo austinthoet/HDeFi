@@ -10,7 +10,12 @@ import android.widget.Button;
 
 public class MessagesActivity extends AppCompatActivity {
 
+    /**
+     * TODO: Display all Posts from Database here
+     */
+
     private Button concepts, formulas, messages, readings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,25 +63,25 @@ public class MessagesActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        /**
-         *  if the item clicked in the MessagesActivity is the Add button from the
-         *  menu resource, start the PostActivity.
-         */
+         //  if the item clicked in the MessagesActivity is the Add button from the
+         //  menu resource, start the PostActivity.
 
-        if(item.getItemId() == R.id.action_add){
+        if (item.getItemId() == R.id.action_add) {
             startActivity(new Intent(MessagesActivity.this, PostActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }

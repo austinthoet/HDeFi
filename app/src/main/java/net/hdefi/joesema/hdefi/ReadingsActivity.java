@@ -9,6 +9,11 @@ import android.widget.Button;
 
 public class ReadingsActivity extends AppCompatActivity {
 
+    /**
+     * TODO: Let Teacher add Readings
+     */
+
+
     private Button concepts, formulas, messages, readings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
