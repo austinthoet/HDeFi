@@ -65,7 +65,7 @@ public class MessagesActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.main_menu_add, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -83,5 +83,7 @@ public class MessagesActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }

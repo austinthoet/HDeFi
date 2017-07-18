@@ -6,13 +6,16 @@
     android:layout_height="match_parent"
     tools:context="net.hdefi.joesema.hdefi.ConceptsActivity">
 
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imConcepts"
         android:layout_width="wrap_content"
         android:layout_height="408dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/concept_map" />
 
