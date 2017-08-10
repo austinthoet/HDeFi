@@ -19,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ConceptsActivity"
             android:label="Main Concepts" />
@@ -37,7 +36,7 @@
             android:label="Post" />
         <activity
             android:name=".RegistrationActivity"
-            android:label="Register"/>
+            android:label="Register" />
     </application>
 
 </manifest>

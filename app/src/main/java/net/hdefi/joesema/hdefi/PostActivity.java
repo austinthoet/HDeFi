@@ -2,6 +2,7 @@ package net.hdefi.joesema.hdefi;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.text.TextUtilsCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -20,17 +21,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import static net.hdefi.joesema.hdefi.R.id.etTitle;
+
 public class PostActivity extends AppCompatActivity {
 
     /**
      * TODO: Create Posts and allow the use of Firebase Database
      */
 
-    private EditText etTitle;
-    private EditText etPost;
-    private Button bSubmit;
+    private EditText etPostTitle;
+    private EditText etPostDescription;
+    private Button bSubmitPost;
 
     private DatabaseReference mDatabase;
+    private FirebaseAuth postUser;
 
     private ProgressDialog mProgressDialog;
 
@@ -42,53 +46,66 @@ public class PostActivity extends AppCompatActivity {
         // shows progress to the user
         mProgressDialog = new ProgressDialog(this);
 
-        /**
-         *
-         * TODO: Fix Database- currently doesn't run cause of auth
-         *
-         *
-         */
-        // gets child directory called "Blog" of Firebase database
-        //mDatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
+        // points to the child 'Blog' instead of root dir
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
 
-
-        etTitle = (EditText) findViewById(R.id.etTitle);
-        etPost = (EditText) findViewById(R.id.etPost);
-        bSubmit = (Button) findViewById(R.id.bSubmit);
+        // init FirebaseAuth
+        postUser = FirebaseAuth.getInstance();
 
         /**
-         *  Takes care of Posting to the Database Server
+         *
+         * TODO: Fix Database
+         *
          */
-        bSubmit.setOnClickListener(new View.OnClickListener() {
+
+        etPostTitle = (EditText) findViewById(etTitle);
+        etPostDescription = (EditText) findViewById(R.id.etPost);
+        bSubmitPost = (Button) findViewById(R.id.bSubmit);
+
+        /**
+         *  Takes care of Posting with startPosting method in listener
+         */
+        bSubmitPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PostActivity.this, ConceptsActivity.class));
-                //startPosting();
+                startPosting();
             }
         });
 
     }
 
     private void startPosting() {
-        String title_val = etTitle.getText().toString().trim();
-        String post_val = etPost.getText().toString().trim();
+        String title_val = etPostTitle.getText().toString().trim();
+        String post_val = etPostDescription.getText().toString().trim();
 
         // if the title and post are not empty then allow the posting
         if(!TextUtils.isEmpty(title_val) && !TextUtils.isEmpty(post_val)){
             mProgressDialog.setMessage("Posting to Blog...");
             mProgressDialog.show();
 
+            //create unique id for each post
+            DatabaseReference newPost = mDatabase.push();
+
             // setting a child called "Title" to the value of the data entered by user
-            mDatabase.child("Title").setValue(title_val);
+            newPost.child("Title").setValue(title_val);
+            newPost.child("Description").setValue(post_val);
 
-            mDatabase.child("Content").setValue(post_val);
+            // TODO: adjust if I use email or uid to identify user
 
-            //.push() makes a random key
+            newPost.child("uid").setValue(postUser.getCurrentUser().getUid());
 
+            // Once post completes
             mProgressDialog.dismiss();
+
+            //Display Completion Toast
+            Toast.makeText(this, "Posted on Blog", Toast.LENGTH_SHORT).show();
 
             // go back to the blog page once completed
             startActivity(new Intent(PostActivity.this, MessagesActivity.class));
+
+        }else{// if the posts are empty
+            Toast.makeText(this, "Make sure you fill in the Title and Description", Toast.LENGTH_SHORT).show();
         }
     }
 }

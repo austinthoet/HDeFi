@@ -1,33 +1,26 @@
 package net.hdefi.joesema.hdefi;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
+
 
 public class ConceptsActivity extends AppCompatActivity{
 
-    private FirebaseAuth firebaseAuth;
 
+    private FirebaseAuth firebaseAuth;
 
     private Button concepts, formulas, messages, readings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_concepts);
-
-
-        //TODO: Zoom works but can't pane photo
 
         /**
          * finding references
@@ -83,6 +76,8 @@ public class ConceptsActivity extends AppCompatActivity{
 
 
     }
+
+
 
 
     @Override
