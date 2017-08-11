@@ -20,7 +20,22 @@
             android:id="@+id/postDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
+
+        <TextView
+            android:id="@+id/postEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
+
+        <TextView
+            android:id="@+id/postDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:paddingBottom="15dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp" />

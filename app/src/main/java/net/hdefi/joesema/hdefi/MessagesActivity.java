@@ -97,6 +97,8 @@ public class MessagesActivity extends AppCompatActivity {
 
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setDescription(model.getDescription());
+                viewHolder.setEmail(model.getEmail());
+                viewHolder.setDate(model.getDate());
 
             }
         };
@@ -128,7 +130,19 @@ public class MessagesActivity extends AppCompatActivity {
             post_description.setText(description);
         }
 
+        public void setEmail(String email){
 
+            TextView post_email = (TextView) mView.findViewById(R.id.postEmail);
+            post_email.setText(email);
+
+        }
+
+        public void setDate(String date){
+
+            TextView post_date = (TextView) mView.findViewById(R.id.postDate);
+            post_date.setText(date);
+
+        }
     }
 
 

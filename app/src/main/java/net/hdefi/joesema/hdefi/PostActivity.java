@@ -16,10 +16,13 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.Calendar;
 
 import static net.hdefi.joesema.hdefi.R.id.etTitle;
 
@@ -30,7 +33,8 @@ public class PostActivity extends AppCompatActivity {
     private Button bSubmitPost;
 
     private DatabaseReference mDatabase;
-    private FirebaseAuth postUser;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
 
     private ProgressDialog mProgressDialog;
 
@@ -45,8 +49,9 @@ public class PostActivity extends AppCompatActivity {
         // points to the child 'Blog' instead of root dir
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
 
-        // init FirebaseAuth
-        postUser = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        mCurrentUser = mAuth.getCurrentUser();
+
 
         etPostTitle = (EditText) findViewById(etTitle);
         etPostDescription = (EditText) findViewById(R.id.etPost);
@@ -68,6 +73,8 @@ public class PostActivity extends AppCompatActivity {
     private void startPosting() {
         String title_val = etPostTitle.getText().toString().trim();
         String post_val = etPostDescription.getText().toString().trim();
+        String myDate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+
 
         // if the title and post are not empty then allow the posting
         if(!TextUtils.isEmpty(title_val) && !TextUtils.isEmpty(post_val)){
@@ -80,10 +87,9 @@ public class PostActivity extends AppCompatActivity {
             // setting a child called "Title" to the value of the data entered by user
             newPost.child("title").setValue(title_val);
             newPost.child("description").setValue(post_val);
+            newPost.child("email").setValue(mCurrentUser.getEmail());// use to identify user
+            newPost.child("date").setValue(myDate);
 
-            // TODO: adjust if I use email or uid to identify user
-
-            // newPost.child("uid").setValue(postUser.getCurrentUser().getUid());
 
             // Once post completes
             mProgressDialog.dismiss();
