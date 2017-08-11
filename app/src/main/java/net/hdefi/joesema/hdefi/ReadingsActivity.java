@@ -144,6 +144,10 @@ public class ReadingsActivity extends AppCompatActivity {
         public String readingTitle;
         public String readingDescription;
 
+        public TeacherReading(){
+
+        }
+
         public TeacherReading(String readingTitle, String readingDescription){
             this.readingTitle = readingTitle;
             this.readingDescription = readingDescription;

@@ -25,10 +25,6 @@ import static net.hdefi.joesema.hdefi.R.id.etTitle;
 
 public class PostActivity extends AppCompatActivity {
 
-    /**
-     * TODO: Create Posts and allow the use of Firebase Database
-     */
-
     private EditText etPostTitle;
     private EditText etPostDescription;
     private Button bSubmitPost;
@@ -51,12 +47,6 @@ public class PostActivity extends AppCompatActivity {
 
         // init FirebaseAuth
         postUser = FirebaseAuth.getInstance();
-
-        /**
-         *
-         * TODO: Fix Database
-         *
-         */
 
         etPostTitle = (EditText) findViewById(etTitle);
         etPostDescription = (EditText) findViewById(R.id.etPost);
@@ -88,12 +78,12 @@ public class PostActivity extends AppCompatActivity {
             DatabaseReference newPost = mDatabase.push();
 
             // setting a child called "Title" to the value of the data entered by user
-            newPost.child("Title").setValue(title_val);
-            newPost.child("Description").setValue(post_val);
+            newPost.child("title").setValue(title_val);
+            newPost.child("description").setValue(post_val);
 
             // TODO: adjust if I use email or uid to identify user
 
-            newPost.child("uid").setValue(postUser.getCurrentUser().getUid());
+            // newPost.child("uid").setValue(postUser.getCurrentUser().getUid());
 
             // Once post completes
             mProgressDialog.dismiss();
