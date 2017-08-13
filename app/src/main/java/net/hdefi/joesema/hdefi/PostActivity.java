@@ -63,8 +63,8 @@ public class PostActivity extends AppCompatActivity {
         bSubmitPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PostActivity.this, ConceptsActivity.class));
                 startPosting();
+                startActivity(new Intent(PostActivity.this, ConceptsActivity.class));
             }
         });
 

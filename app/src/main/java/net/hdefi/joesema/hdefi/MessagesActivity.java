@@ -10,20 +10,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MessagesActivity extends AppCompatActivity {
 
-    /**
-     * TODO: Display all Posts from Database here
-     */
-
     private Button concepts, formulas, messages, readings;
     private RecyclerView mBlogList;
     private DatabaseReference mDatabase;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +35,7 @@ public class MessagesActivity extends AppCompatActivity {
 
         // we want access to the child "Blog" not the root directory
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
+        firebaseAuth = FirebaseAuth.getInstance();
 
 
 
@@ -79,6 +79,7 @@ public class MessagesActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
 
@@ -95,10 +96,25 @@ public class MessagesActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(BlogViewHolder viewHolder, Blog model, int position) {
 
+                final String post_key = getRef(position).getKey();
+
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setDescription(model.getDescription());
                 viewHolder.setEmail(model.getEmail());
                 viewHolder.setDate(model.getDate());
+
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //take user to single blog post
+                        //Toast.makeText(MessagesActivity.this, post_key, Toast.LENGTH_SHORT).show();
+
+                        Intent singleBlogIntent = new Intent(MessagesActivity.this, BlogSingleActivity.class);
+                        singleBlogIntent.putExtra("blog_id", post_key);
+                        startActivity(singleBlogIntent);
+
+                    }
+                });
 
             }
         };
@@ -145,12 +161,13 @@ public class MessagesActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu_add, menu);
-
+        if(firebaseAuth.getCurrentUser().getEmail().toString().equals("jps5775@psu.edu")){
+            getMenuInflater().inflate(R.menu.main_menu_clear, menu);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -163,6 +180,9 @@ public class MessagesActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.action_add) {
             startActivity(new Intent(MessagesActivity.this, PostActivity.class));
+        }else if(item.getItemId() == R.id.action_clear){
+            //clear the blog
+            mDatabase.removeValue();
         }
 
         return super.onOptionsItemSelected(item);

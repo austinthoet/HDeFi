@@ -1,30 +1,42 @@
 package net.hdefi.joesema.hdefi;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.RequiresPermission;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.EventLogTags;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ReadingsActivity extends AppCompatActivity {
 
 
     private Button concepts, formulas, messages, readings;
+
     // used to get firebase user
     private FirebaseAuth firebaseAuth;
+
     private EditText title, description;
+
     // used to store data
-    private DatabaseReference databaseReference;
+    private DatabaseReference mDatabase;
+
+    private ProgressDialog mProgressDialog;
 
 
     @Override
@@ -32,15 +44,18 @@ public class ReadingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_readings);
 
+        mProgressDialog = new ProgressDialog(this);
+
         title = (EditText) findViewById(R.id.etTitle);
         description = (EditText) findViewById(R.id.etDescription);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Reading");
 
         // if teacher set editable
         if(firebaseAuth.getCurrentUser().getEmail().toString().equals("jps5775@psu.edu")){
             title.setEnabled(true);
-            title.setEnabled(true);
+            description.setEnabled(true);
         }else{ // if students set not editable
             title.setEnabled(false);
             description.setEnabled(false);
@@ -53,6 +68,7 @@ public class ReadingsActivity extends AppCompatActivity {
         formulas = (Button) findViewById(R.id.bFormulas);
         messages = (Button) findViewById(R.id.bMessages);
         readings = (Button) findViewById(R.id.bReadings);
+
 
 
         /**
@@ -88,21 +104,70 @@ public class ReadingsActivity extends AppCompatActivity {
         });
 
 
+    }
 
-        // TODO: save the info in the title and description
+    public void onStart(){
+        super.onStart();
+
+        // get the info and set it
+        // TODO: fix this so that it updates
+
+        // for the title
+        final TextView post_titleRead = (TextView) findViewById(R.id.etTitle);
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                post_titleRead.setText(dataSnapshot.child("title").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        // for the description
+        final TextView post_descRead = (TextView) findViewById(R.id.etDescription);
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                post_descRead.setText(dataSnapshot.child("description").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 
     // saves data for readings to database for teacher
     private void saveReadings(){
-        String theTitle = title.getText().toString().trim();
-        String theDescription = description.getText().toString().trim();
+        String theTitle = title.getText().toString();
+        String theDescription = description.getText().toString();
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        //TODO: finish method to save reading
+        if(!TextUtils.isEmpty(theTitle) && !TextUtils.isEmpty(theDescription)){
+            mProgressDialog.setMessage("Saving...");
+            mProgressDialog.show();
 
-        Toast.makeText(this, "Reading Saved", Toast.LENGTH_SHORT).show();
+            //create unique id for each post
+            //DatabaseReference newPost = mDatabase.push();
+
+            // setting a child called "Title" to the value of the data entered by user
+            mDatabase.child("title").setValue(theTitle);
+            mDatabase.child("description").setValue(theDescription);
+
+            // Once post completes
+            mProgressDialog.dismiss();
+
+            Toast.makeText(this, "Reading Saved", Toast.LENGTH_SHORT).show();
+
+        }else{// if the posts are empty
+            Toast.makeText(this, "Make sure you fill in the Title and Description", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -129,32 +194,12 @@ public class ReadingsActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }else if(item.getItemId() == R.id.action_saveReading){
-            //TODO: save the data for reading in database
             saveReadings();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-
-    /**
-     *  Inner Class to save data for readings
-     */
-    private class TeacherReading{
-        public String readingTitle;
-        public String readingDescription;
-
-        public TeacherReading(){
-
-        }
-
-        public TeacherReading(String readingTitle, String readingDescription){
-            this.readingTitle = readingTitle;
-            this.readingDescription = readingDescription;
-        }
-
-
-    }
 
 }
 

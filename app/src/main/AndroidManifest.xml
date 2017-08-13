@@ -37,6 +37,11 @@
         <activity
             android:name=".RegistrationActivity"
             android:label="Register" />
+        <activity
+            android:name=".BlogSingleActivity"
+            android:label="Single Post">
+
+        </activity>
     </application>
 
 </manifest>
