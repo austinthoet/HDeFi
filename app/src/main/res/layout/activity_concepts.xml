@@ -7,7 +7,7 @@
     tools:context="net.hdefi.joesema.hdefi.ConceptsActivity">
 
 
-    <ImageView
+    <net.hdefi.joesema.hdefi.TouchImageView
         android:id="@+id/imConcepts"
         android:layout_width="wrap_content"
         android:layout_height="408dp"
@@ -29,7 +29,7 @@
 
 
         <Button
-            android:id="@+id/bConcepts"
+            android:id="@+id/bConcepts2"
             android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,13 +40,13 @@
             android:text="Concepts" />
 
         <Button
-            android:id="@+id/bFormulas"
+            android:id="@+id/bFormulas2"
             android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/bConcepts"
-            android:layout_toEndOf="@+id/bConcepts"
-            android:layout_toRightOf="@+id/bConcepts"
+            android:layout_alignBottom="@+id/bConcepts2"
+            android:layout_toEndOf="@+id/bConcepts2"
+            android:layout_toRightOf="@+id/bConcepts2"
             android:text="Formulas" />
 
         <Button
@@ -54,9 +54,9 @@
             android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/bFormulas"
-            android:layout_toEndOf="@+id/bFormulas"
-            android:layout_toRightOf="@+id/bFormulas"
+            android:layout_alignTop="@+id/bFormulas2"
+            android:layout_toEndOf="@+id/bFormulas2"
+            android:layout_toRightOf="@+id/bFormulas2"
             android:text="Messages" />
 
         <Button

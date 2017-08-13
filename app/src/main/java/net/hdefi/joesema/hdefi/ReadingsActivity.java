@@ -2,11 +2,9 @@ package net.hdefi.joesema.hdefi;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.RequiresPermission;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.EventLogTags;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -64,8 +61,8 @@ public class ReadingsActivity extends AppCompatActivity {
         /**
          * finding references
          */
-        concepts = (Button) findViewById(R.id.bConcepts);
-        formulas = (Button) findViewById(R.id.bFormulas);
+        concepts = (Button) findViewById(R.id.bConcepts2);
+        formulas = (Button) findViewById(R.id.bFormulas2);
         messages = (Button) findViewById(R.id.bMessages);
         readings = (Button) findViewById(R.id.bReadings);
 

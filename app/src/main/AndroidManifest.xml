@@ -39,9 +39,10 @@
             android:label="Register" />
         <activity
             android:name=".BlogSingleActivity"
-            android:label="Single Post">
-
-        </activity>
+            android:label="Single Post"/>
+        <activity
+            android:name=".Formulas2Activity"
+            android:label="Formulas 2"/>
     </application>
 
 </manifest>

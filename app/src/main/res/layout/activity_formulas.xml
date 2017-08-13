@@ -8,30 +8,17 @@
     tools:context="net.hdefi.joesema.hdefi.FormulasActivity">
 
 
-
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <net.hdefi.joesema.hdefi.TouchImageView
                     android:layout_width="wrap_content"
                     android:layout_height="525dp"
                     android:src="@drawable/formulas_1" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="525dp"
-                    android:src="@drawable/formulas_2" />
-
             </LinearLayout>
-
-
-        </ScrollView>
 
 
 
@@ -46,7 +33,7 @@
 
 
             <Button
-                android:id="@+id/bConcepts"
+                android:id="@+id/bConcepts2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -57,12 +44,12 @@
                 android:text="Concepts" />
 
             <Button
-                android:id="@+id/bFormulas"
+                android:id="@+id/bFormulas2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/bConcepts"
-                android:layout_toEndOf="@+id/bConcepts"
-                android:layout_toRightOf="@+id/bConcepts"
+                android:layout_alignBottom="@+id/bConcepts2"
+                android:layout_toEndOf="@+id/bConcepts2"
+                android:layout_toRightOf="@+id/bConcepts2"
                 android:onClick="onClick"
                 android:text="Formulas" />
 
@@ -70,9 +57,9 @@
                 android:id="@+id/bMessages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/bFormulas"
-                android:layout_toEndOf="@+id/bFormulas"
-                android:layout_toRightOf="@+id/bFormulas"
+                android:layout_alignTop="@+id/bFormulas2"
+                android:layout_toEndOf="@+id/bFormulas2"
+                android:layout_toRightOf="@+id/bFormulas2"
                 android:onClick="onClick"
                 android:text="Messages" />
 

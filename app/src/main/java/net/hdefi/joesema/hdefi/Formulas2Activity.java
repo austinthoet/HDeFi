@@ -7,75 +7,60 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
 import com.google.firebase.auth.FirebaseAuth;
 
-
-public class ConceptsActivity extends AppCompatActivity {
-
-
-    private FirebaseAuth firebaseAuth;
+public class Formulas2Activity extends AppCompatActivity {
 
     private Button concepts, formulas, messages, readings;
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_concepts);
-
-        //finding references
-
-
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        // if the user is not logged in take them back to the login screen
-        if(firebaseAuth.getCurrentUser() == null){
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
-        }
-
-
+        setContentView(R.layout.activity_formulas2);
+        /**
+         * finding references
+         */
         concepts = (Button) findViewById(R.id.bConcepts2);
         formulas = (Button) findViewById(R.id.bFormulas2);
-        messages = (Button) findViewById(R.id.bMessages);
-        readings = (Button) findViewById(R.id.bReadings);
+        messages = (Button) findViewById(R.id.bMessages2);
+        readings = (Button) findViewById(R.id.bReadings2);
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        //Listeners for all buttons
+        /**
+         * Listeners for all buttons
+         */
 
         concepts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ConceptsActivity.this, ConceptsActivity.class));
+                startActivity(new Intent(Formulas2Activity.this, ConceptsActivity.class));
             }
         });
 
         formulas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ConceptsActivity.this, FormulasActivity.class));
+                startActivity(new Intent(Formulas2Activity.this, FormulasActivity.class));
             }
         });
 
         messages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ConceptsActivity.this, MessagesActivity.class));
+                startActivity(new Intent(Formulas2Activity.this, MessagesActivity.class));
             }
         });
 
         readings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ConceptsActivity.this, ReadingsActivity.class));
+                startActivity(new Intent(Formulas2Activity.this, ReadingsActivity.class));
             }
         });
 
-
-
-
     }
 
-
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu_logout, menu);
@@ -98,6 +83,4 @@ public class ConceptsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }

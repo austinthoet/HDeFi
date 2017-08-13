@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,8 +41,8 @@ public class MessagesActivity extends AppCompatActivity {
         /**
          * finding references
          */
-        concepts = (Button) findViewById(R.id.bConcepts);
-        formulas = (Button) findViewById(R.id.bFormulas);
+        concepts = (Button) findViewById(R.id.bConcepts2);
+        formulas = (Button) findViewById(R.id.bFormulas2);
         messages = (Button) findViewById(R.id.bMessages);
         readings = (Button) findViewById(R.id.bReadings);
 

@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.hdefi.joesema.hdefi.MessagesActivity">
+    tools:context="net.hdefi.joesema.hdefi.Formulas2Activity">
 
 
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/blog_list"
-        android:paddingBottom="70dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content">
+
+        <net.hdefi.joesema.hdefi.TouchImageView
+            android:layout_width="wrap_content"
+            android:layout_height="525dp"
+            android:src="@drawable/formulas_2" />
+
+    </LinearLayout>
+
 
 
     <LinearLayout
@@ -27,6 +28,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+
 
 
         <Button
@@ -51,7 +53,7 @@
             android:text="Formulas" />
 
         <Button
-            android:id="@+id/bMessages"
+            android:id="@+id/bMessages2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/bFormulas2"
@@ -61,7 +63,7 @@
             android:text="Messages" />
 
         <Button
-            android:id="@+id/bReadings"
+            android:id="@+id/bReadings2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -69,4 +71,5 @@
             android:text="Read" />
 
     </LinearLayout>
+
 </RelativeLayout>

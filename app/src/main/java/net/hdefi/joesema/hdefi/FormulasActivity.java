@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.android.gms.internal.zzbdd;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class FormulasActivity extends AppCompatActivity {
@@ -22,8 +21,8 @@ public class FormulasActivity extends AppCompatActivity {
         /**
          * finding references
          */
-        concepts = (Button) findViewById(R.id.bConcepts);
-        formulas = (Button) findViewById(R.id.bFormulas);
+        concepts = (Button) findViewById(R.id.bConcepts2);
+        formulas = (Button) findViewById(R.id.bFormulas2);
         messages = (Button) findViewById(R.id.bMessages);
         readings = (Button) findViewById(R.id.bReadings);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -65,6 +64,7 @@ public class FormulasActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu_logout, menu);
+        getMenuInflater().inflate(R.menu.main_menu_nextpage, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -80,6 +80,8 @@ public class FormulasActivity extends AppCompatActivity {
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this, LoginActivity.class));
+        }else if(item.getItemId() == R.id.action_nextpage){
+            startActivity(new Intent(this, Formulas2Activity.class));
         }
 
         return super.onOptionsItemSelected(item);
