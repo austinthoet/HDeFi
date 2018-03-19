@@ -50,7 +50,7 @@ public class ReadingsActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Reading");
 
         // if teacher set editable
-        if(firebaseAuth.getCurrentUser().getEmail().toString().equals("jps5775@psu.edu")){
+        if(firebaseAuth.getCurrentUser().getEmail().toString().equals("aus22@psu.edu")){
             title.setEnabled(true);
             description.setEnabled(true);
         }else{ // if students set not editable
@@ -172,7 +172,7 @@ public class ReadingsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu_logout, menu);
-        if(firebaseAuth.getCurrentUser().getEmail().toString().equals("jps5775@psu.edu")){
+        if(firebaseAuth.getCurrentUser().getEmail().toString().equals("aus22@psu.edu")){
             getMenuInflater().inflate(R.menu.main_menu_savereading, menu);
         }
 

@@ -4,6 +4,6 @@
 
     <item
         android:id="@+id/action_nextpage"
-        android:title="Page 2"
+        android:title="@string/page_2"
         app:showAsAction="always" />
 </menu>

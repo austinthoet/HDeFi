@@ -164,7 +164,7 @@ public class MessagesActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu_add, menu);
-        if(firebaseAuth.getCurrentUser().getEmail().toString().equals("jps5775@psu.edu")){
+        if(firebaseAuth.getCurrentUser().getEmail().toString().equals("aus22@psu.edu")){
             getMenuInflater().inflate(R.menu.main_menu_clear, menu);
         }
         return super.onCreateOptionsMenu(menu);

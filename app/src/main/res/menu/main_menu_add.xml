@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_add"
         android:icon="@mipmap/ic_add_white_24dp"
-        android:title="Add Post"
+        android:title="@string/add_post"
         app:showAsAction="always" />
 
 

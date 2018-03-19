@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">HDeFi</string>
+    <string name="read">Read</string>
+    <string name="concepts">Concepts</string>
+    <string name="formulas">Formulas</string>
+    <string name="messages">Messages</string>
+    <string name="add_post">Add Post</string>
+    <string name="clear_all">Clear All</string>
+    <string name="log_out">Log out</string>
+    <string name="page_2">Page 2</string>
+    <string name="save_reading">Save Reading</string>
 </resources>

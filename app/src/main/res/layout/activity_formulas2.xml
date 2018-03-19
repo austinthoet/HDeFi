@@ -29,46 +29,46 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-
-
         <Button
             android:id="@+id/bConcepts2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_marginBottom="15dp"
-            android:layout_toEndOf="@+id/linearLayout"
-            android:layout_toRightOf="@+id/linearLayout"
             android:onClick="onClick"
-            android:text="Concepts" />
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/concepts" />
 
         <Button
             android:id="@+id/bFormulas2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/bConcepts2"
-            android:layout_toEndOf="@+id/bConcepts2"
-            android:layout_toRightOf="@+id/bConcepts2"
             android:onClick="onClick"
-            android:text="Formulas" />
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/formulas" />
 
         <Button
             android:id="@+id/bMessages2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/bFormulas2"
-            android:layout_toEndOf="@+id/bFormulas2"
-            android:layout_toRightOf="@+id/bFormulas2"
             android:onClick="onClick"
-            android:text="Messages" />
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/messages" />
 
         <Button
             android:id="@+id/bReadings2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="Read" />
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/read" />
 
     </LinearLayout>
 
